@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
       - id: setup-rust
         name: setup rust
-        uses: ningenMe/setup-rustup@v0.2.0
+        uses: ningenMe/setup-rustup@v0.3.0
       - id: cargo-build
         name: cargo build
         run: |
