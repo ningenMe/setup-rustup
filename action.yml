@@ -1,0 +1,14 @@
+name: setup-rustup
+description: setup rustup
+runs:
+  using: composite
+  steps:
+    - id: setup-rustup
+      name: setup rustup
+      run: |
+        curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf > rustup.sh
+        chmod 755 rustup.sh
+        ./rustup.sh -y
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        rm rustup.sh
+      shell: bash
