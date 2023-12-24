@@ -1,7 +1,7 @@
 name: setup-rustup
 description: setup rustup
 inputs:
-  version:
+  rust-version:
     description: 'a version of rust for install'
     required: false
     default: stable
@@ -20,6 +20,6 @@ runs:
     - id: setup-rust-version
       name: setup rust version
       run: |
-        rustup toolchain add ${{inputs.version}}
-        rustup default ${{inputs.version}}
+        rustup toolchain add ${{inputs.rust-version}}
+        rustup default ${{inputs.rust-version}}
       shell: bash
