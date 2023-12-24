@@ -1,5 +1,10 @@
 name: setup-rustup
 description: setup rustup
+inputs:
+  version:
+    description: 'a version of rust for install'
+    required: false
+    default: stable
 runs:
   using: composite
   steps:
@@ -11,4 +16,10 @@ runs:
         ./rustup.sh -y
         echo "$HOME/.cargo/bin" >> $GITHUB_PATH
         rm rustup.sh
+      shell: bash
+    - id: setup-rust-version
+      name: setup rust version
+      run: |
+        rustup toolchain add ${{inputs.version}}
+        rustup default ${{inputs.version}}
       shell: bash
