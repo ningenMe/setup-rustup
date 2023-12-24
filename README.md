@@ -21,6 +21,7 @@ jobs:
       - id: cargo-build
         name: cargo build
         run: |
+          cargo --version
           cargo build
         shell: bash
 
